@@ -1,0 +1,1 @@
+﻿{"id":"web-lsp","name":"Web Language Server","description":"High-performance LSP for HTML, CSS, and JSON.","version":"1.0.0","author":"CodeOSS","icon":"https://raw.githubusercontent.com/microsoft/vscode-icons/master/icons/light/json.svg","type":"npm","packageName":"vscode-langservers-extracted"}
