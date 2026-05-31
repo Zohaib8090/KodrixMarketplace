@@ -4,49 +4,73 @@
       "version": "26.2.0",
       "tag": "v26.2.0 (Current)",
       "status": "available",
-      "arm64-v8a": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/node-current-arm64.zip",
-      "armeabi-v7a": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/node-current-arm32.zip",
-      "x86_64": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/node-current-x86_64.zip",
-      "x86": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/node-current-x86.zip"
+      "arm64-v8a": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/node-current-arm64.zip",
+      "armeabi-v7a": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/node-current-arm32.zip",
+      "x86_64": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/node-current-x86_64.zip",
+      "x86": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/node-current-x86.zip",
+      "rules": {
+        "installPath": "versions/node/26.2.0",
+        "executables": ["bin/node"],
+        "wrappers": {
+          "node": "bin/node",
+          "npm": "lib/node_modules/npm/bin/npm-cli.js",
+          "npx": "lib/node_modules/npm/bin/npx-cli.js"
+        }
+      }
     },
     {
       "version": "24.15.0",
       "tag": "v24.15.0 (LTS)",
       "status": "available",
-      "arm64-v8a": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/node-lts-arm64.zip",
-      "armeabi-v7a": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/node-lts-arm32.zip",
-      "x86_64": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/node-lts-x86_64.zip",
-      "x86": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/node-lts-x86.zip"
+      "arm64-v8a": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/node-lts-arm64.zip",
+      "armeabi-v7a": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/node-lts-arm32.zip",
+      "x86_64": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/node-lts-x86_64.zip",
+      "x86": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/node-lts-x86.zip",
+      "rules": {
+        "installPath": "versions/node/24.15.0",
+        "executables": ["bin/node"],
+        "wrappers": {
+          "node": "bin/node",
+          "npm": "lib/node_modules/npm/bin/npm-cli.js",
+          "npx": "lib/node_modules/npm/bin/npx-cli.js"
+        }
+      }
     },
     {
       "version": "22.x (Jod)",
       "tag": "v22 LTS — Jod",
       "status": "unavailable",
       "note": "No public Android/Bionic binary available. Build from Termux source or NDK.",
-      "arm64-v8a": "",
-      "armeabi-v7a": "",
-      "x86_64": "",
-      "x86": ""
+      "arm64-v8a": "", "armeabi-v7a": "", "x86_64": "", "x86": ""
     },
     {
       "version": "20.x (Iron)",
       "tag": "v20 LTS — Iron",
       "status": "unavailable",
       "note": "No public Android/Bionic binary available. Build from Termux source or NDK.",
-      "arm64-v8a": "",
-      "armeabi-v7a": "",
-      "x86_64": "",
-      "x86": ""
+      "arm64-v8a": "", "armeabi-v7a": "", "x86_64": "", "x86": ""
     },
     {
       "version": "18.x (Hydrogen)",
       "tag": "v18 LTS — Hydrogen",
       "status": "unavailable",
       "note": "No public Android/Bionic binary available. Build from Termux source or NDK.",
-      "arm64-v8a": "",
-      "armeabi-v7a": "",
-      "x86_64": "",
-      "x86": ""
+      "arm64-v8a": "", "armeabi-v7a": "", "x86_64": "", "x86": ""
+    }
+  ],
+  "git": [
+    {
+      "version": "2.41.0",
+      "tag": "v2.41.0 (Bundled)",
+      "status": "available",
+      "universal": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/git-universal.zip",
+      "rules": {
+        "installPath": "versions/git/2.41.0",
+        "executables": ["bin/git", "libexec/git-core/git-remote-http"],
+        "wrappers": {
+          "git": "bin/git"
+        }
+      }
     }
   ]
 }
