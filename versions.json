@@ -79,19 +79,48 @@
     "iconUrl": "https://raw.githubusercontent.com/Zohaib8090/KodrixMarketplace/main/icons/git.png",
     "versions": [
       {
-        "version": "2.41.0",
-        "tag": "v2.41.0 (Bundled)",
+        "version": "2.34.0",
+        "tag": "v2.34.0 (Bundled)",
         "status": "available",
         "sha256": "",
         "universal": "https://github.com/Zohaib8090/KodrixMarketplace/raw/main/git-universal.zip",
         "rules": {
-          "installPath": "versions/git/2.41.0",
+          "installPath": "versions/git/2.34.0",
           "executables": ["bin/git", "libexec/git-core/git-remote-http"],
           "env": {},
           "wrappers": {
             "git":              { "type": "symlink", "path": "bin/git" },
             "git-remote-http":  { "type": "symlink", "path": "libexec/git-core/git-remote-http" },
             "git-remote-https": { "type": "symlink", "path": "libexec/git-core/git-remote-http" }
+          }
+        }
+      }
+    ]
+  },
+  "python": {
+    "displayName": "Python Runtime",
+    "category": "Runtime",
+    "iconUrl": "https://raw.githubusercontent.com/Zohaib8090/KodrixMarketplace/main/icons/python.png",
+    "versions": [
+      {
+        "version": "3.13.13",
+        "tag": "v3.13.13 (Latest)",
+        "status": "available",
+        "arm64-v8a": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/python-3.13.13-arm64-v8a.zip",
+        "armeabi-v7a": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/python-3.13.13-armeabi-v7a.zip",
+        "x86_64": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/python-3.13.13-x86_64.zip",
+        "x86": "https://github.com/Zohaib8090/KodrixMarketplace/releases/download/v1.0/python-3.13.13-x86.zip",
+        "rules": {
+          "installPath": "versions/python/3.13.13",
+          "executables": ["bin/python", "bin/python3"],
+          "env": {
+            "PYTHONHOME": ""
+          },
+          "wrappers": {
+            "python": { "type": "symlink", "path": "bin/python" },
+            "python3": { "type": "symlink", "path": "bin/python3" },
+            "pip":  { "type": "script",  "path": "bin/pip", "interpreter": "python" },
+            "pip3":  { "type": "script",  "path": "bin/pip3", "interpreter": "python" }
           }
         }
       }
