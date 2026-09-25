@@ -1,0 +1,50 @@
+name: Check runtimes
+
+# Weekly: make sure every language Kodrix offers still installs (packages exist and
+# resolve on every CPU architecture). Opens one issue when something breaks and closes
+# it once everything works again. Nothing needs doing for new versions.
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+  push:
+    paths: ["versions.json", "scripts/check_registry.py"]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve every runtime against the live package index
+        id: check
+        run: |
+          set +e
+          python3 scripts/check_registry.py > report.md
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          cat report.md
+      - name: Open or update the issue
+        if: steps.check.outputs.status != '0' && github.event_name != 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list --label runtime-check --state open --json number --jq '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file report.md
+          else
+            gh label create runtime-check --color D93F0B --force >/dev/null 2>&1 || true
+            gh issue create --title "Some runtimes can't be installed" --label runtime-check --body-file report.md
+          fi
+      - name: Close the issue when everything works again
+        if: steps.check.outputs.status == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for n in $(gh issue list --label runtime-check --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "All runtimes install again."
+          done
+      - name: Fail on a broken push
+        if: steps.check.outputs.status != '0' && github.event_name == 'push'
+        run: exit 1

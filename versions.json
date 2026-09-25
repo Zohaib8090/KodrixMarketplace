@@ -1,7 +1,7 @@
 {
   "_config": {
     "schema": 2,
-    "note": "Keys starting with _ are settings, not tools. Termux mirrors are tried in order; the .debs come from whichever mirror served the package index.",
+    "note": "Keys starting with _ are settings, not tools. Termux mirrors are tried in order; the .debs come from whichever mirror served the package index. The app also has a built-in catalog of ~25 languages; entries here add to it or replace entries with the same id. Versions are never listed for termux entries: they come from the live package index.",
     "registryMirrors": [
       "https://raw.githubusercontent.com/Zohaib8090/KodrixMarketplace/main/versions.json",
       "https://cdn.jsdelivr.net/gh/Zohaib8090/KodrixMarketplace@main/versions.json",
@@ -21,6 +21,24 @@
     "category": "Runtime",
     "iconUrl": "https://raw.githubusercontent.com/Zohaib8090/KodrixMarketplace/main/icons/node.png",
     "versions": [
+      {
+        "version": "latest",
+        "tag": "Latest",
+        "status": "available",
+        "source": "termux",
+        "packages": [
+          "nodejs"
+        ]
+      },
+      {
+        "version": "lts",
+        "tag": "LTS",
+        "status": "available",
+        "source": "termux",
+        "packages": [
+          "nodejs-lts"
+        ]
+      },
       {
         "version": "26.2.0",
         "tag": "v26.2.0 (Latest)",
@@ -84,7 +102,8 @@
           "x86_64": "24f3a0099c6ab868427d4bf960ef6a43f2160141f6243b3ee31e17f21a348b9d",
           "x86": "0f8b344f74f3a7f4689b18d1a0d269426c8f14d9adfd8d330e507ee41f671a57"
         },
-        "size": 67696308
+        "size": 67696308,
+        "legacy": true
       },
       {
         "version": "24.15.0",
@@ -149,40 +168,22 @@
           "x86_64": "a94d711dfd098c0c947da9c387932d5aee94ce0bbd49ced0fd544dfc18a01694",
           "x86": "62a06c86a42e4faa71a037601ad85ad36bc9434b4b1c7031c6a8b3a733a2cbb9"
         },
-        "size": 66429038
-      },
-      {
-        "version": "22.x (Jod)",
-        "tag": "v22 LTS \u2014 Jod",
-        "status": "unavailable",
-        "note": "No public Android/Bionic binary available. Build from Termux source or NDK.",
-        "arm64-v8a": "",
-        "armeabi-v7a": "",
-        "x86_64": "",
-        "x86": ""
-      },
-      {
-        "version": "20.x (Iron)",
-        "tag": "v20 LTS \u2014 Iron",
-        "status": "unavailable",
-        "note": "No public Android/Bionic binary available. Build from Termux source or NDK.",
-        "arm64-v8a": "",
-        "armeabi-v7a": "",
-        "x86_64": "",
-        "x86": ""
-      },
-      {
-        "version": "18.x (Hydrogen)",
-        "tag": "v18 LTS \u2014 Hydrogen",
-        "status": "unavailable",
-        "note": "No public Android/Bionic binary available. Build from Termux source or NDK.",
-        "arm64-v8a": "",
-        "armeabi-v7a": "",
-        "x86_64": "",
-        "x86": ""
+        "size": 66429038,
+        "legacy": true
       }
     ],
-    "description": "JavaScript runtime. A Node.js is already built into Kodrix; install another version only if a project needs it."
+    "description": "JavaScript runtime. One is built into Kodrix; install another only if a project needs a specific version. Updates automatically.",
+    "binaries": [
+      "node",
+      "npm",
+      "npx"
+    ],
+    "verify": {
+      "command": [
+        "${install}/bin/node",
+        "--version"
+      ]
+    }
   },
   "git": {
     "displayName": "Git",
