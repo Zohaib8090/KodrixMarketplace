@@ -302,7 +302,10 @@
         },
         "legacy": true
       }
-    ]
+    ],
+    "hints": {
+      "py": "Use python3 (or python) to run Python here."
+    }
   },
   "c": {
     "displayName": "C / C++ (Clang)",
@@ -391,7 +394,14 @@
         ],
         "versionPackage": "rust"
       }
-    ]
+    ],
+    "env": {
+      "CARGO_HOME": "${install}/cargo-home"
+    },
+    "hints": {
+      "rustup": "rustup isn't used in Kodrix: Rust is installed and updated from Marketplace -> Runtimes. Use rustc to compile and cargo to build/run (e.g. cargo new hello && cd hello && cargo run).",
+      "rust": "There's no 'rust' command. Use rustc file.rs to compile, or cargo new / cargo run for projects."
+    }
   },
   "go": {
     "displayName": "Go (experimental)",
